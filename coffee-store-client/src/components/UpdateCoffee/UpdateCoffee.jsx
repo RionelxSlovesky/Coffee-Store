@@ -19,8 +19,6 @@ const UpdateCoffee = () => {
 
         const updatedCoffee = { name, quantity, category, photoURL, details }
 
-        console.log(updatedCoffee)
-
         fetch(`http://localhost:5000/coffee/${coffee._id}`, {
             method: 'PUT',
             headers: {
@@ -30,7 +28,7 @@ const UpdateCoffee = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if (data.insertedId) {
+                if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: 'Sweet!',
                         text: 'Coffee Updated.',
@@ -88,7 +86,7 @@ const UpdateCoffee = () => {
                 <textarea defaultValue={coffee.details} name="details" className='w-full p-4 mb-6' placeholder='Details...'></textarea>
 
                 <div className='text-center'>
-                    <input type="submit" value="SUBMIT" className="btn btn-circle bg-amber-950 hover:bg-amber-800 w-16 h-16" />
+                    <input type="submit" value="UPDATE" className="btn btn-circle bg-amber-950 hover:bg-amber-800 w-16 h-16" />
                 </div>
                 
 
