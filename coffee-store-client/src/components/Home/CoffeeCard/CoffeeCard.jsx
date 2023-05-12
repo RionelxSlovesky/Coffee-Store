@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
 const CoffeeCard = ({ coffee }) => {
@@ -37,7 +38,7 @@ const CoffeeCard = ({ coffee }) => {
 
     return (
         <>
-            <div className="card card-side bg-base-100 shadow-xl">
+            <div className="card card-side bg-base-100 shadow-xl mb-6">
                 <figure><img src={coffee?.photoURL} alt="Movie" /></figure>
                 <div className="card-body">
                     <h2 className="card-title text-amber-950">{coffee?.name}</h2>
@@ -47,7 +48,7 @@ const CoffeeCard = ({ coffee }) => {
                     <div className="card-actions justify-end">
                         <div className="btn-group btn-group-vertical">
                             <button className="btn bg-amber-950 hover:bg-amber-800">View</button>
-                            <button className="btn bg-amber-950 hover:bg-amber-800">Edit</button>
+                            <Link className="btn bg-amber-950 hover:bg-amber-800" to={`/updateCoffee/${coffee._id}`}>Edit</Link>
                             <button className="btn bg-amber-950 hover:bg-amber-800" onClick={() => handleDelete(coffee._id)}>X</button>
                         </div>
                     </div>

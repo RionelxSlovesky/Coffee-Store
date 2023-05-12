@@ -85,8 +85,9 @@ const AddCoffee = () => {
                 <p className="text-center">Details</p>
                 <textarea name="details" className='w-full p-4 mb-6' placeholder='Details...'></textarea>
 
-                <input type="submit" value="ADD" className="btn btn-circle bg-amber-950 hover:bg-amber-800" />
-
+                <div className='text-center'>
+                    <input type="submit" value="ADD" className="btn btn-circle bg-amber-950 hover:bg-amber-800" />
+                </div>
 
             </form>
         </div>
