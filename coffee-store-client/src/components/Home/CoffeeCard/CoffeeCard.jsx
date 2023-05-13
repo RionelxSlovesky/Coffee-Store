@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
-const CoffeeCard = ({ coffee }) => {
+const CoffeeCard = ({ coffee, coffees, handleUpdateCoffees }) => {
 
 
     const handleDelete = _id => {
@@ -30,6 +30,10 @@ const CoffeeCard = ({ coffee }) => {
                                 'success'
                             )
                         }
+
+                        const remainingCoffees = coffees.filter(cof => cof._id !== coffee._id)
+                        handleUpdateCoffees(remainingCoffees)
+                        
                     })
                     .catch(err => console.log(err))
             }
